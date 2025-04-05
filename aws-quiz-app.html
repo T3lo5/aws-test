@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Quiz - Preparação para Entrevista</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AWS Quiz - Preparação para Entrevista Técnica</h1>
+            <div class="controls">
+                <select id="category-filter">
+                    <option value="all">Todos os tópicos</option>
+                    <option value="compute">Computação (EC2, Lambda, etc)</option>
+                    <option value="storage">Armazenamento (S3, EBS, etc)</option>
+                    <option value="database">Banco de Dados (RDS, DynamoDB, etc)</option>
+                    <option value="networking">Redes (VPC, Route53, etc)</option>
+                    <option value="security">Segurança (IAM, Security Groups, etc)</option>
+                    <option value="management">Gerenciamento (CloudFormation, CloudTrail, etc)</option>
+                </select>
+                <button id="shuffle-button">Embaralhar</button>
+                <button id="toggle-mode">Modo Estudo/Exame</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="quiz-container">
+                <div id="study-mode" class="active">
+                    <div id="question-container">
+                        <div id="question-number">Questão 1 de 30</div>
+                        <div id="question-text">Carregando perguntas...</div>
+                    </div>
+                    <div id="show-answer-container">
+                        <button id="show-answer-btn">Mostrar Resposta</button>
+                    </div>
+                    <div id="answer-container" class="hidden">
+                        <div id="answer-text"></div>
+                    </div>
+                    <div class="navigation">
+                        <button id="prev-btn" disabled>Anterior</button>
+                        <button id="next-btn">Próxima</button>
+                    </div>
+                </div>
+                
+                <div id="exam-mode" class="hidden">
+                    <div id="exam-question-container">
+                        <div id="exam-question-number">Questão 1 de 30</div>
+                        <div id="exam-question-text">Carregando perguntas...</div>
+                    </div>
+                    <div id="options-container">
+                        <div class="option" data-option="a">
+                            <input type="radio" name="option" id="option-a">
+                            <label for="option-a" id="option-a-text"></label>
+                        </div>
+                        <div class="option" data-option="b">
+                            <input type="radio" name="option" id="option-b">
+                            <label for="option-b" id="option-b-text"></label>
+                        </div>
+                        <div class="option" data-option="c">
+                            <input type="radio" name="option" id="option-c">
+                            <label for="option-c" id="option-c-text"></label>
+                        </div>
+                        <div class="option" data-option="d">
+                            <input type="radio" name="option" id="option-d">
+                            <label for="option-d" id="option-d-text"></label>
+                        </div>
+                    </div>
+                    <div id="exam-result" class="hidden">
+                        <div id="result-text"></div>
+                        <div id="explanation"></div>
+                    </div>
+                    <div class="navigation">
+                        <button id="exam-prev-btn" disabled>Anterior</button>
+                        <button id="check-answer-btn">Verificar</button>
+                        <button id="exam-next-btn" disabled>Próxima</button>
+                    </div>
+                </div>
+                
+                <div id="progress-container">
+                    <div id="progress-bar">
+                        <div id="progress"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Desenvolvido para preparação de entrevista técnica sobre AWS. &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
