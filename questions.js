@@ -392,5 +392,265 @@ const questionsDB = [
         },
         correctAnswer: "d",
         explanation: "O AWS CloudHSM é a melhor opção quando uma empresa precisa gerenciar suas próprias chaves de criptografia com controle total. Ele fornece módulos de segurança de hardware (HSMs) dedicados, compatíveis com FIPS 140-2 Nível 3, permitindo que a empresa mantenha controle exclusivo sobre suas chaves de criptografia. CloudHSM oferece mais controle que o KMS, pois nenhum administrador da AWS tem acesso às chaves, tornando-o ideal para aplicações com requisitos rigorosos de conformidade que exigem gerenciamento completo das chaves."
-    }
+    },
+{
+    id: 31,
+    category: "networking",
+    question: "Um administrador de sistema precisa estabelecer uma conexão segura entre a VPC da empresa e sua rede on-premises usando uma conexão privada dedicada. Qual serviço AWS é mais adequado para este cenário?",
+    options: {
+        a: "AWS VPN Site-to-Site",
+        b: "AWS Direct Connect",
+        c: "Internet Gateway",
+        d: "NAT Gateway"
+    },
+    correctAnswer: "b",
+    explanation: "AWS Direct Connect é uma solução de conexão de rede dedicada que estabelece uma conexão privada entre sua rede on-premises e a AWS. Diferentemente da VPN, que usa a internet pública, o Direct Connect fornece uma conexão privada dedicada, oferecendo maior largura de banda, latência reduzida e uma experiência de rede mais consistente. É ideal para cargas de trabalho sensíveis à latência ou ambientes que exigem altos níveis de segurança e privacidade na conexão."
+},
+{
+    id: 32,
+    category: "compute",
+    question: "Uma empresa de desenvolvimento de software precisa executar contêineres Docker em grande escala sem se preocupar com o gerenciamento da frota de instâncias EC2 subjacentes. Qual serviço AWS oferece a melhor solução para esse requisito?",
+    options: {
+        a: "Amazon ECR (Elastic Container Registry)",
+        b: "Amazon ECS com instâncias EC2",
+        c: "Amazon EKS (Elastic Kubernetes Service)",
+        d: "Amazon ECS com AWS Fargate"
+    },
+    correctAnswer: "d",
+    explanation: "Amazon ECS com AWS Fargate é a melhor solução para executar contêineres sem gerenciar a infraestrutura subjacente. O Fargate é um mecanismo de computação sem servidor para contêineres que elimina a necessidade de provisionar e gerenciar servidores. Com o Fargate, você define e paga pelos recursos por contêiner, não precisa selecionar tipos de instâncias, provisionar clusters ou otimizar o empacotamento de contêineres. Isso permite que a empresa se concentre totalmente no desenvolvimento e na implantação de aplicativos em contêineres, sem as complexidades de gerenciamento de infraestrutura."
+},
+{
+    id: 33,
+    category: "security",
+    question: "Uma empresa precisa garantir que todos os dados armazenados no Amazon S3 sejam criptografados. Qual das seguintes opções é a mais eficiente para garantir que novos objetos enviados ao bucket sempre sejam criptografados?",
+    options: {
+        a: "Configurar a AWS Lambda para criptografar objetos após o upload",
+        b: "Instruir desenvolvedores a usar o SDK da AWS para criptografar dados no lado do cliente",
+        c: "Configurar a criptografia padrão do bucket S3",
+        d: "Usar o AWS CloudTrail para monitorar uploads não criptografados"
+    },
+    correctAnswer: "c",
+    explanation: "Configurar a criptografia padrão do bucket S3 é a solução mais eficiente para garantir que todos os novos objetos sejam automaticamente criptografados durante o upload. Com essa configuração, o Amazon S3 aplica criptografia no lado do servidor para todos os objetos quando são gravados no bucket, mesmo se o upload não especificar explicitamente parâmetros de criptografia. Isso fornece uma camada consistente de segurança sem depender de ações dos desenvolvedores ou processos adicionais após o upload."
+},
+{
+    id: 34,
+    category: "database",
+    question: "Uma aplicação financeira precisa realizar milhares de transações por segundo, mantendo consistência ACID e baixa latência. Qual banco de dados AWS é mais adequado para este cenário?",
+    options: {
+        a: "Amazon DynamoDB",
+        b: "Amazon Aurora",
+        c: "Amazon Redshift",
+        d: "Amazon Neptune"
+    },
+    correctAnswer: "b",
+    explanation: "Amazon Aurora é o serviço de banco de dados mais adequado para aplicações financeiras que exigem transações ACID (Atomicidade, Consistência, Isolamento, Durabilidade) e alto throughput. Aurora é um banco de dados relacional compatível com MySQL e PostgreSQL, projetado para oferecer até 5 vezes o desempenho do MySQL padrão e 3 vezes o do PostgreSQL. Ele combina a confiabilidade e conformidade ACID dos bancos de dados relacionais tradicionais com a escala e disponibilidade de bancos de dados na nuvem, tornando-o ideal para aplicações financeiras que exigem transações confiáveis em grande escala."
+},
+{
+    id: 35,
+    category: "management",
+    question: "Uma organização deseja garantir que todos os recursos AWS sejam etiquetados adequadamente para alocação de custos. Qual serviço AWS pode ser usado para impor políticas de etiquetagem em recursos recém-criados?",
+    options: {
+        a: "AWS Config",
+        b: "AWS Service Catalog",
+        c: "AWS Organizations com Políticas de Tag",
+        d: "AWS Cost Explorer"
+    },
+    correctAnswer: "c",
+    explanation: "AWS Organizations com Políticas de Tag permite impor regras de etiquetagem consistentes em toda a organização. Com as políticas de tag, você pode definir quais tags são obrigatórias, quais formatos são aceitáveis e quais valores são permitidos. Essas políticas podem ser aplicadas a contas específicas ou a toda a organização, garantindo que todos os recursos recém-criados sigam os padrões de etiquetagem definidos. Isso é crucial para uma alocação de custos precisa e eficaz, permitindo que a organização rastreie e atribua despesas a departamentos, projetos ou centros de custo específicos."
+},
+{
+    id: 36,
+    category: "storage",
+    question: "Uma empresa de serviços de streaming precisa armazenar e distribuir vídeos para usuários globalmente. Qual combinação de serviços AWS forneceria a solução mais eficiente para esse cenário?",
+    options: {
+        a: "Amazon S3 com Amazon CloudFront",
+        b: "Amazon EBS com EC2 Auto Scaling",
+        c: "Amazon EFS com AWS Direct Connect",
+        d: "Amazon S3 Glacier com API Gateway"
+    },
+    correctAnswer: "a",
+    explanation: "A combinação de Amazon S3 com Amazon CloudFront é ideal para streaming de vídeo global. O Amazon S3 oferece armazenamento escalável, durável e econômico para os arquivos de vídeo, enquanto o CloudFront funciona como uma rede de distribuição de conteúdo (CDN) que armazena em cache o conteúdo em locais de borda em todo o mundo. Isso reduz significativamente a latência para os usuários finais, pois o conteúdo é entregue do ponto de presença mais próximo. Além disso, o CloudFront integra-se nativamente com o S3 e oferece recursos avançados como streaming adaptativo, SSL/TLS para segurança e controles detalhados de acesso."
+},
+{
+    id: 37,
+    category: "networking",
+    question: "Uma empresa possui múltiplas VPCs em diferentes regiões e contas AWS. Qual solução permite que elas conectem todas essas VPCs de maneira centralizada e gerenciada?",
+    options: {
+        a: "VPC Peering para cada par de VPCs",
+        b: "Internet Gateway em cada VPC",
+        c: "AWS Transit Gateway",
+        d: "AWS Direct Connect em cada região"
+    },
+    correctAnswer: "c",
+    explanation: "AWS Transit Gateway é a solução ideal para conectar múltiplas VPCs de forma centralizada. Ele funciona como um hub que gerencia o tráfego entre VPCs, conexões VPN e Direct Connect, simplificando significativamente a arquitetura de rede. Com o Transit Gateway, você evita configurações complexas de peering ponto-a-ponto que se tornam inviáveis à medida que o número de VPCs aumenta. Ele suporta conexões entre diferentes regiões e contas AWS através do Transit Gateway peering e do compartilhamento de recursos, respectivamente. Além disso, oferece recursos avançados como tabelas de rotas, controle de largura de banda e monitoramento centralizado."
+},
+{
+    id: 38,
+    category: "security",
+    question: "Um arquiteto de segurança precisa implementar uma solução para proteger dados sensíveis armazenados em bancos de dados RDS e tabelas DynamoDB. Os dados nunca devem ser expostos em texto não criptografado, e as chaves de criptografia devem ser gerenciadas seguindo as melhores práticas de segurança. Qual serviço AWS deve ser utilizado?",
+    options: {
+        a: "AWS Certificate Manager (ACM)",
+        b: "AWS Secrets Manager",
+        c: "AWS Key Management Service (KMS)",
+        d: "AWS Identity and Access Management (IAM)"
+    },
+    correctAnswer: "c",
+    explanation: "AWS Key Management Service (KMS) é o serviço ideal para proteger dados sensíveis em bancos de dados. O KMS permite criar e gerenciar chaves criptográficas e controlar seu uso em diversos serviços AWS, incluindo RDS e DynamoDB. Com o KMS, você pode implementar criptografia em repouso para seus dados, garantindo que fiquem protegidos mesmo se houver acesso não autorizado ao armazenamento subjacente. O KMS oferece recursos avançados como rotação automática de chaves, controles de acesso detalhados através de políticas, trilhas de auditoria completas com integração ao CloudTrail e conformidade com diversos padrões regulatórios como FIPS 140-2."
+},
+{
+    id: 39,
+    category: "compute",
+    question: "Uma startup está desenvolvendo uma aplicação serverless que precisa processar imagens enviadas pelos usuários. O processamento envolve várias etapas, incluindo validação, redimensionamento, otimização e armazenamento. Qual serviço AWS é mais adequado para orquestrar esse fluxo de trabalho?",
+    options: {
+        a: "AWS Lambda com callbacks aninhados",
+        b: "AWS Step Functions",
+        c: "Amazon SQS com EC2 workers",
+        d: "Amazon ECS Tasks"
+    },
+    correctAnswer: "b",
+    explanation: "AWS Step Functions é a escolha ideal para orquestrar fluxos de trabalho complexos de múltiplas etapas. Ele permite que você defina e execute fluxos de trabalho (workflows) visuais que coordenam vários serviços AWS em uma sequência de etapas. Para o processamento de imagens descrito, o Step Functions pode orquestrar diferentes funções Lambda para cada etapa do processo (validação, redimensionamento, etc.), gerenciar estados e transições, lidar com erros e reinicializações, e manter o controle do progresso do fluxo de trabalho. Isso resulta em um código mais limpo e mais fácil de manter do que alternativas como callbacks aninhados ou filas de mensagens, especialmente para lógicas de negócio complexas com múltiplas etapas."
+},
+{
+    id: 40,
+    category: "management",
+    question: "Uma empresa global precisa garantir que sua infraestrutura AWS esteja em conformidade com requisitos regulatórios em diferentes regiões geográficas. Qual serviço AWS ajuda a avaliar continuamente a conformidade de configurações de recursos?",
+    options: {
+        a: "AWS Trusted Advisor",
+        b: "AWS CloudTrail",
+        c: "AWS Config",
+        d: "Amazon Inspector"
+    },
+    correctAnswer: "c",
+    explanation: "AWS Config é o serviço ideal para avaliar continuamente a conformidade da infraestrutura com requisitos regulatórios. Ele fornece um inventário detalhado dos recursos AWS e registra continuamente as mudanças de configuração. Com as regras do AWS Config (tanto as predefinidas quanto as personalizadas), você pode avaliar automaticamente se suas configurações estão em conformidade com suas políticas internas e padrões regulatórios. O Config oferece painéis de conformidade, histórico detalhado de mudanças, avaliação de impacto e relatórios que ajudam a demonstrar conformidade durante auditorias. Isso é especialmente valioso para empresas globais que precisam atender a requisitos regulatórios diferentes em cada região geográfica onde operam."
+},
+{
+    id: 41,
+    category: "terraform",
+    question: "Qual é o propósito principal do Terraform?",
+    options: {
+        a: "Gerenciamento de contêineres Docker",
+        b: "Infraestrutura como Código (IaC)",
+        c: "Orquestração de aplicativos",
+        d: "Monitoramento de serviços em nuvem"
+    },
+    correctAnswer: "b",
+    explanation: "O principal propósito do Terraform é fornecer uma solução de Infraestrutura como Código (IaC). O Terraform permite que você defina recursos de infraestrutura usando uma linguagem declarativa chamada HashiCorp Configuration Language (HCL) ou JSON. Com o Terraform, você descreve o estado desejado da sua infraestrutura em arquivos de configuração, e o Terraform se encarrega de provisionar e gerenciar esses recursos em diversos provedores de nuvem e serviços. Isso automatiza a criação e modificação de infraestrutura, garantindo consistência, reprodutibilidade e versionamento da infraestrutura."
+},
+{
+    id: 42,
+    category: "terraform",
+    question: "Em Terraform, qual é a função do comando 'terraform plan'?",
+    options: {
+        a: "Aplicar as mudanças definidas nos arquivos de configuração",
+        b: "Mostrar um preview das mudanças que serão aplicadas à infraestrutura",
+        c: "Inicializar um novo diretório de trabalho do Terraform",
+        d: "Validar a sintaxe dos arquivos de configuração do Terraform"
+    },
+    correctAnswer: "b",
+    explanation: "O comando 'terraform plan' cria um plano de execução que mostra um preview das mudanças que o Terraform fará à infraestrutura com base nos arquivos de configuração atuais e no estado atual da infraestrutura. Ele analisa o estado atual, compara com o estado desejado definido nos arquivos de configuração, e mostra quais recursos serão criados, modificados ou destruídos. Este comando não faz nenhuma alteração real na infraestrutura, sendo uma etapa crucial para revisar as mudanças antes de aplicá-las com 'terraform apply'."
+},
+{
+    id: 43,
+    category: "terraform",
+    question: "Como o Terraform gerencia o estado da infraestrutura?",
+    options: {
+        a: "Consultando APIs dos provedores de nuvem sempre que necessário",
+        b: "Usando um banco de dados relacional para armazenar o estado",
+        c: "Através de arquivos de estado (state files) que mapeiam recursos reais para a configuração",
+        d: "Não gerencia estado; sempre recria toda a infraestrutura"
+    },
+    correctAnswer: "c",
+    explanation: "O Terraform gerencia o estado da infraestrutura através de arquivos de estado (tipicamente chamados de terraform.tfstate). Estes arquivos mapeiam os recursos definidos em sua configuração para os recursos reais no ambiente do provedor, armazenando metadados como IDs de recursos. O arquivo de estado permite que o Terraform determine quais mudanças precisa aplicar em execuções futuras, calcule dependências e crie planos para alterar a infraestrutura de forma segura. O estado pode ser armazenado localmente ou remotamente (como no S3, Azure Blob Storage, Terraform Cloud, etc.) para facilitar a colaboração em equipe."
+},
+{
+    id: 44,
+    category: "terraform",
+    question: "Qual é a melhor prática para armazenar o arquivo de estado do Terraform quando trabalhando em equipe?",
+    options: {
+        a: "Armazenar localmente e compartilhar via controle de versão (Git)",
+        b: "Usar um backend remoto com suporte a lock e criptografia",
+        c: "Regenerar o estado sempre que necessário usando 'terraform import'",
+        d: "Manter uma cópia central em um servidor de arquivos compartilhado"
+    },
+    correctAnswer: "b",
+    explanation: "A melhor prática para armazenar o arquivo de estado do Terraform quando trabalhando em equipe é usar um backend remoto com suporte a lock e criptografia. Isso inclui opções como S3 com DynamoDB para locking, Azure Blob Storage, Google Cloud Storage, Terraform Cloud, ou HashiCorp Consul. Um backend remoto oferece vários benefícios: previne conflitos de execução simultânea através de locking, permite colaboração segura entre membros da equipe, fornece backup e versão do estado, e aumenta a segurança através da criptografia de dados sensíveis. Armazenar o estado no controle de versão é desencorajado pois pode expor informações sensíveis e não oferece proteção contra operações concorrentes."
+},
+{
+    id: 45,
+    category: "terraform",
+    question: "O que são módulos no Terraform e qual é seu propósito?",
+    options: {
+        a: "Contêineres para executar o código Terraform em ambientes isolados",
+        b: "Extensões de terceiros que adicionam novos recursos ao Terraform",
+        c: "Coleções de recursos que são usados juntos como uma unidade configurável e reutilizável",
+        d: "Scripts para automatizar tarefas comuns do Terraform como apply e destroy"
+    },
+    correctAnswer: "c",
+    explanation: "Módulos no Terraform são coleções de recursos relacionados que são gerenciados juntos como uma unidade configurável e reutilizável. Eles permitem encapsular grupos de recursos, com entradas (variáveis) e saídas definidas, facilitando o reuso de configurações em diferentes projetos ou partes de um projeto. Os módulos promovem boas práticas como abstração, encapsulamento e composição, permitindo definir padrões organizacionais, aplicar configurações consistentes e simplificar configurações complexas. Por exemplo, você pode criar um módulo para uma arquitetura de aplicação web padrão que inclua balanceador de carga, instâncias e grupos de segurança, e reutilizá-lo em vários ambientes."
+},
+{
+    id: 46,
+    category: "terraform",
+    question: "Qual comando do Terraform deve ser usado para destruir toda a infraestrutura gerenciada por uma configuração específica?",
+    options: {
+        a: "terraform delete",
+        b: "terraform remove",
+        c: "terraform destroy",
+        d: "terraform clean"
+    },
+    correctAnswer: "c",
+    explanation: "O comando 'terraform destroy' é usado para destruir toda a infraestrutura gerenciada por uma configuração específica. Este comando analisa o arquivo de estado do Terraform para determinar quais recursos estão atualmente gerenciados e então destrói cada um deles na ordem correta, respeitando as dependências. Por padrão, o Terraform solicita confirmação antes de prosseguir. Este comando é especialmente útil em ambientes temporários, como ambientes de desenvolvimento ou teste, ou quando você deseja limpar todos os recursos antes de encerrar um projeto."
+},
+{
+    id: 47,
+    category: "terraform",
+    question: "Como o Terraform interage com a AWS para gerenciar recursos?",
+    options: {
+        a: "Diretamente através da AWS CLI instalada no sistema",
+        b: "Usando um agente especial instalado na conta AWS",
+        c: "Via APIs AWS, utilizando credenciais fornecidas pelo usuário",
+        d: "Através de scripts personalizados executados por funções Lambda"
+    },
+    correctAnswer: "c",
+    explanation: "O Terraform interage com a AWS através das APIs oficiais da AWS, utilizando credenciais fornecidas pelo usuário. O Terraform usa o provider AWS, que é um plugin que implementa a integração com as APIs da AWS. Para autenticar, o Terraform pode usar credenciais estáticas configuradas no arquivo de configuração, variáveis de ambiente, o arquivo de credenciais AWS (~/.aws/credentials), perfis assumidos via AWS STS, ou métodos de autenticação específicos de ambientes como EC2 Instance Profiles ou ECS Task Roles. Esta abordagem baseada em API permite que o Terraform funcione sem dependências externas específicas da AWS além do próprio provider."
+},
+{
+    id: 48,
+    category: "terraform",
+    question: "O que é 'drift' no contexto do Terraform e como detectá-lo?",
+    options: {
+        a: "Diferenças de performance entre ambientes que ocorrem ao longo do tempo",
+        b: "Discrepâncias entre o estado do Terraform e a infraestrutura real",
+        c: "Mudanças não intencionais em arquivos de configuração do Terraform",
+        d: "Variação de custo de recursos de nuvem ao longo do tempo"
+    },
+    correctAnswer: "b",
+    explanation: "No contexto do Terraform, 'drift' refere-se às discrepâncias entre o estado gerenciado pelo Terraform e o estado real da infraestrutura, que ocorrem quando mudanças são feitas diretamente na infraestrutura (por exemplo, via console AWS) em vez de através do Terraform. Para detectar drift, você pode usar o comando 'terraform plan', que compara o estado atual com a configuração e mostra quais recursos estão diferentes. Para uma detecção mais específica, o comando 'terraform refresh' atualiza o arquivo de estado para refletir o estado real da infraestrutura. Em ambientes empresariais, ferramentas como Terraform Cloud, AWS Config ou ferramentas de terceiros podem monitorar continuamente o drift e alertar quando ele ocorre."
+},
+{
+    id: 49,
+    category: "terraform",
+    question: "O que são 'data sources' no Terraform e como eles são utilizados?",
+    options: {
+        a: "Bancos de dados utilizados para armazenar o estado do Terraform",
+        b: "Fontes de dados que permitem importar informações externas para uso na configuração",
+        c: "Ferramentas para migrar dados entre diferentes ambientes de infraestrutura",
+        d: "Repositórios Git que armazenam configurações do Terraform"
+    },
+    correctAnswer: "b",
+    explanation: "Data sources no Terraform são componentes que permitem buscar ou computar dados para uso em configurações. Eles permitem que você utilize informações de recursos existentes (que podem não ser gerenciados pelo Terraform) ou atributos dinâmicos dentro de sua configuração. Por exemplo, você pode usar um data source para buscar o ID de uma AMI específica na AWS, obter zonas de disponibilidade de uma região, consultar informações de VPCs existentes, ou ler dados de serviços externos. Os data sources são particularmente úteis para integrar recursos gerenciados pelo Terraform com infraestrutura existente ou para acessar informações que só estão disponíveis em tempo de execução."
+},
+{
+    id: 50,
+    category: "terraform",
+    question: "Qual é a diferença entre 'terraform apply' e 'terraform apply -auto-approve'?",
+    options: {
+        a: "Não há diferença, são comandos equivalentes",
+        b: "'terraform apply' executa mais rápido que 'terraform apply -auto-approve'",
+        c: "'terraform apply' requer confirmação manual, enquanto '-auto-approve' executa sem pedir confirmação",
+        d: "'terraform apply -auto-approve' executa apenas em ambientes de produção"
+    },
+    correctAnswer: "c",
+    explanation: "A diferença principal é que 'terraform apply' mostra o plano de execução e requer uma confirmação manual (digitando 'yes') antes de aplicar as mudanças na infraestrutura, enquanto 'terraform apply -auto-approve' pula a etapa de confirmação e aplica as mudanças automaticamente. O uso de '-auto-approve' é comum em pipelines de CI/CD automatizados onde interação manual não é possível. No entanto, em ambientes de produção ou quando executando manualmente, é geralmente mais seguro usar 'terraform apply' sem a flag auto-approve para revisar as mudanças propostas antes de aplicá-las."
+        } 
 ];
